@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CharacterRepository extends JpaRepository<CharacterModel,Long> {
+public interface CharacterRepository extends JpaRepository<CharacterModel, Long> {
     List<CharacterModel> findByName(String name);
 }

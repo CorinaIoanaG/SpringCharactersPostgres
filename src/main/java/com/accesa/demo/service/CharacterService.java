@@ -31,7 +31,8 @@ public class CharacterService {
             throw new RuntimeException("Could not read from URL: " + e.getMessage());
         }
 
-        ObjectReader objectReader = mapper.readerFor(new TypeReference<List<CharacterModel>>() {});
+        ObjectReader objectReader = mapper.readerFor(new TypeReference<List<CharacterModel>>() {
+        });
 
         try {
             // Transformăm JsonNode-ul într-o List<CharacterModel>
