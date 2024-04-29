@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  api:
+    image: characters-api:0.0.1
+    restart: always
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/characters
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - DB_SCHEMA=characters
+    ports:
+        - "8080:8080"
+    depends_on:
+      - postgres-db
+
+  postgres-db:
+    image: postgres:13
+    restart: always
+    # volumes:
+    #   - ./postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=characters
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
